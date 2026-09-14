@@ -70,8 +70,10 @@
                 @endif
             </div>
             <div>
-                <span>تاریخ ایجاد: {{ $content->created_at ? $content->created_at->format('Y-m-d H:i') : '-' }}</span>
-            </div>
+                 <span>تاریخ ایجاد: {{ $content->jalali_created_at }}</span>
+                @if ($content->created_at)
+                    <span class="text-muted">({{ $content->jalali_ago }})</span>
+                @endif
         </div>
 
     </div>
