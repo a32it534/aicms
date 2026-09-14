@@ -49,8 +49,8 @@ GAPGPT_MODEL=gpt-4o
 Repository را دریافت کنید:
 
 ```bash
-git clone https://github.com/a32it534/aicms.git
-cd aicms
+git clone https://github.com/a32it534/laravel-ai-cms.git.git
+cd laravel-ai-cms.git
 ```
 
 نصب وابستگی‌ها:
