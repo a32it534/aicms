@@ -59,10 +59,7 @@ class Content extends Model
         );
     }
 
-    /**
-     * اکسسور تاریخ شمسی: $content->jalali_created_at
-     * خروجی مثلاً: ۱۴۰۳/۰۶/۲۵ ۱۸:۳۰
-     */
+
     protected function jalaliCreatedAt(): Attribute
     {
         return Attribute::make(
