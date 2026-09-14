@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Morilog\Jalali\Jalalian;
 
 class Content extends Model
 {
@@ -55,6 +56,28 @@ class Content extends Model
     {
         return Attribute::make(
             get: fn () => $this->image_path ? Storage::disk('public')->url($this->image_path) : null,
+        );
+    }
+
+    /**
+     * اکسسور تاریخ شمسی: $content->jalali_created_at
+     * خروجی مثلاً: ۱۴۰۳/۰۶/۲۵ ۱۸:۳۰
+     */
+    protected function jalaliCreatedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->created_at 
+                ? Jalalian::fromCarbon($this->created_at)->format('Y/m/d H:i') 
+                : '—',
+        );
+    }
+
+    protected function jalaliAgo(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->created_at 
+                ? Jalalian::fromCarbon($this->created_at)->ago() 
+                : '—',
         );
     }
 }
