@@ -65,7 +65,8 @@
                             {{ $content->status === 'published' ? 'منتشر شده' : 'پیش‌نویس' }}
                         </span>
                     </td>
-                    <td class="d-none d-lg-table-cell small text-muted">{{ $content->created_at ? $content->created_at->format('Y/m/d H:i') : '—' }}</td>
+                    {{--  تاریخ شمسی --}}
+                    <td class="d-none d-lg-table-cell small text-muted">{{ $content->jalali_created_at }}</td>
                     <td class="text-start text-nowrap">
                         <a href="{{ route('contents.edit', $content) }}" class="btn btn-sm btn-outline-primary">ویرایش</a>
                         <form action="{{ route('contents.destroy', $content) }}" method="POST" class="d-inline"
