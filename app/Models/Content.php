@@ -49,9 +49,7 @@ class Content extends Model
         return $this->belongsTo(User::class);
     }
 
-    /**
-     * اکسسور برای دریافت URL کامل تصویر شاخص: $content->image_url
-     */
+   
     protected function imageUrl(): Attribute
     {
         return Attribute::make(
