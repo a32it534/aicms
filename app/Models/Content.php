@@ -41,9 +41,7 @@ class Content extends Model
         });
     }
 
-    /**
-     * ارتباط با کاربر ایجادکننده
-     */
+    
     public function user()
     {
         return $this->belongsTo(User::class);
